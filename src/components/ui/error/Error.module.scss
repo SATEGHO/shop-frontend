@@ -1,0 +1,11 @@
+.error {
+  background-color: #fff5f5;
+  color: #fa5252;
+  padding: 10px;
+  line-height: 1.35;
+
+  &.filled {
+    background-color: #fa5252;
+    color: #fff;
+  }
+}

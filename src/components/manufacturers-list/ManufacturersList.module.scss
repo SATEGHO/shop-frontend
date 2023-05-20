@@ -1,0 +1,35 @@
+.header {
+  border-bottom: 1px solid rgb(222, 226, 230);
+}
+
+.header {
+  padding: 10px 0;
+  font-weight: 500;
+
+  .col-3 {
+    text-align: center;
+  }
+}
+
+.cols {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -10px;
+}
+
+.col {
+  padding: 0 10px;
+
+  &-1 {
+    flex: 0 1 50%;
+  }
+
+  &-2 {
+    flex: 0 1 30%;
+  }
+
+  &-3 {
+    flex: 0 1 20%;
+  }
+}

@@ -1,0 +1,61 @@
+.product {
+  border-bottom: 1px solid rgb(222, 226, 230);
+  padding: 0px 10px;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cols {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -10px;
+}
+
+.col {
+  padding: 0 10px;
+
+  &-1 {
+    font-weight: 500;
+    flex: 0 1 50%;
+  }
+
+  &-2 {
+    display: flex;
+    flex: 1 1 30%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-3 {
+    flex: 0 1 20%;
+  }
+}
+
+.actions {
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  color: var(--icon-color);
+  font-size: 17px;
+  flex: 1 1 auto;
+  padding: 14px 0;
+  background: transparent;
+
+  @media (min-width: 992px) {
+    &:hover {
+      background: var(--bg-hover-color);
+    }
+  }
+}

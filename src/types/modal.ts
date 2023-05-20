@@ -1,0 +1,8 @@
+export enum ModalTypes {
+  AUTH = 'AUTH',
+  CREATE_CATEGORY = 'CREATE_CATEGORY',
+  CREATE_MANUFACTURER = 'CREATE_MANUFACTURER',
+  CREATE_PRODUCT = 'CREATE_PRODUCT',
+}
+
+export type RootTypeModals = ModalTypes;

@@ -1,0 +1,58 @@
+:root {
+  --main-color: #fc6703;
+  --header-height: 65px;
+  --navbar-width: 500px;
+  --max-width-container-page: 1150px;
+
+  @media (max-width: 1254px) {
+    --navbar-width: 400px;
+  }
+
+  @media (max-width: 868px) {
+    --navbar-width: 100%;
+    --header-height: 60px;
+  }
+
+  --primary-color: #00aeef;
+  --secondary-color: #12b886;
+  --dec-font-color: #fa5252;
+  --inc-font-color: #40c057;
+  --bg-primary-color: #f4f6fa;
+  --bg-secondary-color: #ffffff;
+  --font-color: #04111d;
+  --bg-borders-color: #e9ecef;
+  --bg-hover-color: #f8f9fa;
+  --icon-color: #535d66;
+  --bg-items-color: #fff;
+  --bg-items-second-color: #edeef0;
+  --border-items-color: #ced4da;
+  //Colors active navlink
+  --bg-navlink-color: #e7f5ff;
+  --navlink-color: #00aeef;
+  --navlink-hover-color: #d0ebffa6;
+  //Colors input
+  --border-input-color: #ced4da;
+  --bg-input-color: #fff;
+  //Colors info item
+  --info-bg-color: #e7f5ff;
+  --info-font-color: #00aeef;
+  //Colors inc and dec buttons
+  --bg-inc-color: #ebfbee;
+  --bg-dec-color: #fbebeb;
+  //Colors scroll
+  --bg-scroll: #dbdbdb;
+  --bg-hover-scroll: #d1d1d1;
+  //Colors tooltip
+  --bg-tooltip: #f5f9fc;
+  //Colors popup
+  --bg-popup-color: rgba(0, 0, 0, 0.55);
+  //Colors btn secondary
+  --bg-btn-secondary-color: #fff;
+  --font-btn-secondary-color: #04111d;
+  --border-btn-secondary-color: rgb(206, 212, 218);
+  //Colors select item
+  --bg-select-item-color: #e7f5ff;
+  //Color error component
+  --bg-error: #ffeeee;
+  --color-error: #f80800;
+}

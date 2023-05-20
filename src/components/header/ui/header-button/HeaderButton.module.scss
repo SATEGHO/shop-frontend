@@ -1,0 +1,21 @@
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  i {
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: inherit;
+  }
+
+  &:hover > div {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}

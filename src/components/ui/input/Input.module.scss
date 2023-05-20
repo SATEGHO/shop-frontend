@@ -1,0 +1,16 @@
+.input {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 0px 12px 0px 12px;
+  border-radius: 8px;
+  font-size: inherit;
+  color: inherit;
+  border: 1px solid var(--border-input-color);
+  background-color: #fff;
+
+  &:focus {
+    border: 1px solid var(--main-color);
+  }
+}

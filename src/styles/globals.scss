@@ -1,0 +1,11 @@
+@import 'normalize.css';
+@import 'reset';
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  color: #303b4a;
+  overflow-y: scroll;
+}

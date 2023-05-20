@@ -1,0 +1,28 @@
+.cart-info {
+  position: sticky;
+  top: 95px;
+  min-width: 300px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.products {
+  margin-bottom: 15px;
+}
+
+.header {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
