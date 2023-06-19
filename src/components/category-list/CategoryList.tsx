@@ -13,8 +13,9 @@ const CategoryList: FC<Props> = ({ categories }) => {
       <div className={styles.header}>
         <div className={styles.cols}>
           <div className={`${styles.col} ${styles['col-1']}`}>Название</div>
-          <div className={`${styles.col} ${styles['col-2']}`}>Дата создания</div>
-          <div className={`${styles.col} ${styles['col-3']}`}>Действия</div>
+          <div className={`${styles.col} ${styles['col-2']}`}>Типы товаров</div>
+          <div className={`${styles.col} ${styles['col-3']}`}>Дата создания</div>
+          <div className={`${styles.col} ${styles['col-4']}`}>Действия</div>
         </div>
       </div>
       {categories.map((category) => (

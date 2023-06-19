@@ -5,7 +5,7 @@ import { ModalTypes } from '@/types/modal';
 import Label from '@/components/ui/label/Label';
 import Input from '@/components/ui/input/Input';
 import { ICreateProductData } from '@/types/product.requests';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useGetManufacturers } from '@/services/react-query/manufacturer.queries';
 import { useGetCategories } from '@/services/react-query/category.queries';
 import Button from '@/components/ui/button/Button';
@@ -13,15 +13,28 @@ import { ButtonVariant } from '@/types/button.types';
 import { useCreateProduct } from '@/services/react-query/product.queries';
 import Error from '@/components/ui/error/Error';
 
+export enum ProductCatalogTypes {
+  APPLIANCES = 'appliances',
+  BUILDING_MATERIALS = 'building_materials',
+}
+
 const ModalCreateProduct = () => {
   const { modal, open, setOpen } = useModalContext();
   const { data: manufacturers } = useGetManufacturers();
   const { data: categories } = useGetCategories();
 
+  const handleChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log('chaned');
+    if (e.target.files) {
+      setForm({ ...form, file: e.target.files[0] });
+      e.target.value = '';
+    }
+  };
+
   const [form, setForm] = useState<ICreateProductData>({
     name: '',
     price: '',
-    image: '',
+    file: undefined,
     description: '',
     quantity: 1,
     categoryId: '',
@@ -32,7 +45,7 @@ const ModalCreateProduct = () => {
     setForm({
       name: '',
       price: '',
-      image: '',
+      file: undefined,
       description: '',
       quantity: 1,
       categoryId: '',
@@ -77,15 +90,24 @@ const ModalCreateProduct = () => {
             placeholder="Цена товара"
           />
         </div>
+
         <div className={styles.group}>
-          <Label htmlFor="image">Ссылка на изображение</Label>
-          <Input
-            id="image"
-            type="text"
-            value={form.image}
-            onChange={(e) => setForm({ ...form, image: e.target.value })}
-            placeholder="Ссылка на изображение"
-          />
+          <Label htmlFor="image">Изображение</Label>
+          <div className={styles.upload}>
+            <label htmlFor="file">
+              {form.file ? (
+                <span className={styles['file-name']}>{form.file.name}</span>
+              ) : (
+                'Выбрать файл'
+              )}
+            </label>
+            <input
+              id="file"
+              type="file"
+              accept=".jpg,.jpeg,.png|image/*"
+              onChange={handleChangeFile}
+            />
+          </div>
         </div>
         <div className={styles.group}>
           <Label htmlFor="body">Описание</Label>

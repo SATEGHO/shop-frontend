@@ -4,6 +4,7 @@ import styles from './AdminLayout.module.scss';
 import ModalCreateCategory from '@/components/modals/modal-create-category/ModalCreateCategory';
 import ModalCreateManufacturer from '@/components/modals/modal-create-manufacturer/ModalCreateManufacturer';
 import ModalCreateProduct from '@/components/modals/modal-create-product/ModalCreateProduct';
+import ModalEditProduct from '@/components/modals/modal-edit-product/ModalEditProduct';
 
 const AdminLayout = () => {
   return (
@@ -16,6 +17,7 @@ const AdminLayout = () => {
         <ModalCreateCategory />
         <ModalCreateManufacturer />
         <ModalCreateProduct />
+        <ModalEditProduct />
       </div>
     </div>
   );

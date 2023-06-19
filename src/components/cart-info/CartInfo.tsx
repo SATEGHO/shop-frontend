@@ -4,18 +4,21 @@ import { FC } from 'react';
 import { formatPrice } from '@/utils/formatPrice';
 import Button from '../ui/button/Button';
 import { ButtonSize } from '@/types/button.types';
+import { useCreateOrder } from '@/services/react-query/order.queries';
 
 interface Props {
   cartItems: ICartItem[];
 }
 
 const CartInfo: FC<Props> = ({ cartItems }) => {
+  const { mutate: createOrder, isLoading, error } = useCreateOrder();
+
   return (
     <div className={styles['cart-info']}>
       <div className={styles.body}>
         <div className={styles.header}>Ваш заказ</div>
         <div className={styles.products}>
-          Количество товаров <span className={styles.count}>{cartItems.length}</span>
+          Количество товаров: <span className={styles.count}>{cartItems.length} шт.</span>
         </div>
         <div className={styles.total}>
           Итого:{' '}
@@ -27,7 +30,11 @@ const CartInfo: FC<Props> = ({ cartItems }) => {
           )}
         </div>
 
-        <Button style={{ background: '#28b611' }} size={ButtonSize.lg}>
+        <Button
+          style={{ background: '#28b611' }}
+          size={ButtonSize.lg}
+          onClick={() => createOrder()}
+          disabled={isLoading}>
           Сделать заказ
         </Button>
       </div>

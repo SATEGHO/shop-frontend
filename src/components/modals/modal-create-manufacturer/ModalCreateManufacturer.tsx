@@ -9,17 +9,20 @@ import { ButtonVariant } from '@/types/button.types';
 import { useState } from 'react';
 import Error from '@/components/ui/error/Error';
 import { useCreateManufacturer } from '@/services/react-query/manufacturer.queries';
+import { ProductCatalogTypes } from '../modal-create-product/ModalCreateProduct';
 
 const ModalCreateManufacturer = () => {
   const { modal, open, setOpen } = useModalContext();
   const [name, setName] = useState('');
+  const [catalog, setCatalog] = useState('');
 
   const onClose = () => {
     setOpen(false);
     setName('');
+    setCatalog('');
   };
 
-  const { mutate, isLoading, error } = useCreateManufacturer(name, onClose);
+  const { mutate, isLoading, error } = useCreateManufacturer(name, catalog, onClose);
 
   const onAdd = () => {
     if (name) {
@@ -43,6 +46,19 @@ const ModalCreateManufacturer = () => {
             onChange={(e) => setName(e.target.value)}
             placeholder="Название производителя"
           />
+        </div>
+        <div className={styles.group}>
+          <Label htmlFor="catalog">К какому типу товаров</Label>
+          <select
+            className={styles.select}
+            value={catalog}
+            onChange={(e) => setCatalog(e.target.value)}>
+            <option disabled value="">
+              Выберите тип товара
+            </option>
+            <option value={ProductCatalogTypes.APPLIANCES}>Бытовая техника</option>
+            <option value={ProductCatalogTypes.BUILDING_MATERIALS}>Стройматериалы</option>
+          </select>
         </div>
         {error && (
           <Error style={{ marginBottom: 20 }}>

@@ -1,10 +1,21 @@
 .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: 15px 0;
+  flex: 1;
+
+  .body-top {
+    flex: 1;
+  }
 }
 
 .img-wrapper {
@@ -25,6 +36,7 @@
 .title {
   cursor: pointer;
   font-size: 15px;
+  line-height: 1.4;
 
   &:hover {
     color: var(--main-color);

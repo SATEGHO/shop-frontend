@@ -1,6 +1,7 @@
+import { Filter } from '@/pages/catalog/CatalogPage';
 import { $authhost } from '.';
 import { IProduct } from '@/types/product.interface';
-import { ICreateProductData } from '@/types/product.requests';
+import { ICreateProductData, IUpdateProductData } from '@/types/product.requests';
 
 export interface ResponseProducts {
   productsIdsCart: string[];
@@ -8,8 +9,10 @@ export interface ResponseProducts {
 }
 
 export const ProductService = {
-  async getAll(query?: string): Promise<ResponseProducts> {
-    const { data } = await $authhost.get<ResponseProducts>(`/products?query=${query || ''}`);
+  async getAll(filter: Filter, query: string): Promise<ResponseProducts> {
+    const { data } = await $authhost.get<ResponseProducts>(`/products`, {
+      params: { ...filter, query },
+    });
     return data;
   },
 
@@ -19,7 +22,37 @@ export const ProductService = {
   },
 
   async create(data: ICreateProductData) {
-    const response = await $authhost.post('/products', data);
+    const formData = new FormData();
+
+    for (const arr of Object.entries(data)) {
+      formData.append(arr[0], arr[1]);
+    }
+
+    const response = await $authhost.post('/products', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+
+  async update(id: string, data: IUpdateProductData) {
+    const formData = new FormData();
+
+    for (const arr of Object.entries(data)) {
+      formData.append(arr[0], arr[1]);
+    }
+
+    const response = await $authhost.patch(`/products/${id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+
+  async delete(id: string) {
+    const response = await $authhost.delete(`/products/${id}`);
     return response.data;
   },
 };

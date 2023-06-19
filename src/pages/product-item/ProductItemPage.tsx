@@ -39,7 +39,10 @@ const ProductItemPage = () => {
           <div className={styles.product}>
             <div className={styles.col}>
               <div className={styles['img-wrapper']}>
-                <img src={product.image} alt={product.name} />
+                <img
+                  src={`${import.meta.env.VITE_API_URL}/uploads/${product.image}`}
+                  alt={product.name}
+                />
               </div>
               <div className={styles['info-text']}>
                 <div className={styles.description}>
@@ -81,7 +84,7 @@ const ProductItemPage = () => {
                   variant={inCart ? ButtonVariant.secondaryOutlined : ButtonVariant.primary}
                   size={ButtonSize.lg}
                   onClick={handleAddCart}
-                  disabled={isLoading}>
+                  disabled={isLoading || product.quantity === 0}>
                   {inCart ? (
                     'В корзине'
                   ) : isLoading ? (

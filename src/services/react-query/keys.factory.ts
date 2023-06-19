@@ -20,3 +20,7 @@ export const categoryKeysFactory = {
 export const manufacturerKeysFactory = {
   manufacturers: ['manufacturers'],
 } as const;
+
+export const orderKeysFactory = {
+  orders: ['orders'],
+} as const;

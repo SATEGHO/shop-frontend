@@ -5,10 +5,18 @@ import { useGetProducts } from '@/services/react-query/product.queries';
 import { ButtonVariant } from '@/types/button.types';
 import { ModalTypes } from '@/types/modal';
 import ProductList from './product-list/ProductList';
+import { useEffect, useState } from 'react';
+import { Filter } from '../catalog/CatalogPage';
 
 const AdminProductsPage = () => {
+  const [filter] = useState<Filter>({
+    catalogFilter: '',
+    sortFilter: '',
+    categoriesFilter: [],
+    manufacturersFilter: [],
+  });
   const { setOpen, setModal } = useModalContext();
-  const { data } = useGetProducts();
+  const { refetch: fetchProducts, data } = useGetProducts(filter, '');
 
   const onAdd = () => {
     setModal(ModalTypes.CREATE_PRODUCT);

@@ -25,10 +25,14 @@
 
   &-1 {
     font-weight: 500;
-    flex: 0 1 50%;
+    flex: 0 1 25%;
   }
 
   &-2 {
+    flex: 0 1 25%;
+  }
+
+  &-3 {
     display: flex;
     flex: 1 1 30%;
     overflow: hidden;
@@ -36,7 +40,7 @@
     text-overflow: ellipsis;
   }
 
-  &-3 {
+  &-4 {
     flex: 0 1 20%;
   }
 }

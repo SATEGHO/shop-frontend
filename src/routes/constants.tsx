@@ -4,6 +4,7 @@ import AdminProductsPage from '@/pages/admin-products/AdminProductsPage';
 import CartPage from '@/pages/cart/CartPage';
 import CatalogPage from '@/pages/catalog/CatalogPage';
 import HomePage from '@/pages/home/HomePage';
+import OrdersPage from '@/pages/orders/OrdersPage';
 import ProductItemPage from '@/pages/product-item/ProductItemPage';
 import { RouteObject } from 'react-router-dom';
 
@@ -14,7 +15,10 @@ export const publicRoutes: RouteObject[] = [
   { path: '/', element: <HomePage /> },
 ];
 
-export const privateRoutes: RouteObject[] = [{ path: 'profile', element: <CatalogPage /> }];
+export const privateRoutes: RouteObject[] = [
+  { path: 'profile', element: <CatalogPage /> },
+  { path: 'orders', element: <OrdersPage /> },
+];
 export const adminRoutes: RouteObject[] = [
   { path: 'products', index: true, element: <AdminProductsPage /> },
   { path: 'categories', element: <AdminCategoriesPage /> },

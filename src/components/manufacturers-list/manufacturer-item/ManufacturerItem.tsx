@@ -16,9 +16,12 @@ const ManufacturerItem: FC<Props> = ({ manufacturer }) => {
       <div className={styles.cols}>
         <div className={`${styles.col} ${styles['col-1']}`}>{manufacturer.name}</div>
         <div className={`${styles.col} ${styles['col-2']}`}>
-          {formatDate(manufacturer.createdAt)}
+          {manufacturer.catalog === 'appliances' ? 'Бытовая техника' : 'Стройматериалы'}
         </div>
         <div className={`${styles.col} ${styles['col-3']}`}>
+          {formatDate(manufacturer.createdAt)}
+        </div>
+        <div className={`${styles.col} ${styles['col-4']}`}>
           <div className={styles.actions}>
             <button className={`${styles.btn} fa-solid fa-pen`}></button>
             <button

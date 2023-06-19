@@ -3,6 +3,7 @@ export enum ModalTypes {
   CREATE_CATEGORY = 'CREATE_CATEGORY',
   CREATE_MANUFACTURER = 'CREATE_MANUFACTURER',
   CREATE_PRODUCT = 'CREATE_PRODUCT',
+  EDIT_PRODUCT = 'EDIT_PRODUCT',
 }
 
 export type RootTypeModals = ModalTypes;

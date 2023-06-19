@@ -15,8 +15,11 @@ const CategoryItem: FC<Props> = ({ category }) => {
     <div className={styles.category}>
       <div className={styles.cols}>
         <div className={`${styles.col} ${styles['col-1']}`}>{category.name}</div>
-        <div className={`${styles.col} ${styles['col-2']}`}>{formatDate(category.createdAt)}</div>
-        <div className={`${styles.col} ${styles['col-3']}`}>
+        <div className={`${styles.col} ${styles['col-2']}`}>
+          {category.catalog === 'appliances' ? 'Бытовая техника' : 'Стройматериалы'}
+        </div>
+        <div className={`${styles.col} ${styles['col-3']}`}>{formatDate(category.createdAt)}</div>
+        <div className={`${styles.col} ${styles['col-4']}`}>
           <div className={styles.actions}>
             <button className={`${styles.btn} fa-solid fa-pen`}></button>
             <button

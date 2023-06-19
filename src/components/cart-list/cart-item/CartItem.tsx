@@ -36,7 +36,10 @@ const CartItem: FC<Props> = ({ cartItem }) => {
           <div
             className={styles['img-wrapper']}
             onClick={() => router(`/products/${cartItem.product.id}`)}>
-            <img src={cartItem.product.image} alt={cartItem.product.name} />
+            <img
+              src={`${import.meta.env.VITE_API_URL}/uploads/${cartItem.product.image}`}
+              alt={cartItem.product.name}
+            />
           </div>
           <div className={styles.info}>
             <div className={styles.id}>Код товара: {cartItem.product.id}</div>
@@ -45,6 +48,9 @@ const CartItem: FC<Props> = ({ cartItem }) => {
               onClick={() => router(`/products/${cartItem.product.id}`)}>
               {cartItem.product.name}
             </span>
+            <div className={styles['price-mobile']}>
+              {formatPrice(cartItem.product.price * cartItem.quantity)}
+            </div>
             <div className={styles.quantity}>
               <div className={styles.btns}>
                 <button

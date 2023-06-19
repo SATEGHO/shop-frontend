@@ -4,14 +4,16 @@ import { CategoryService } from '../category.service';
 import { queryClient } from '.';
 import { toast } from 'react-hot-toast';
 
-export const useGetCategories = () => {
-  return useQuery(categoryKeysFactory.categories, () => CategoryService.getAll());
+export const useGetCategories = (catalogFilter?: string) => {
+  return useQuery([...categoryKeysFactory.categories, catalogFilter], () =>
+    CategoryService.getAll(catalogFilter),
+  );
 };
 
 type Handler = () => void;
 
-export const useCreateCategory = (name: string, cb?: Handler) => {
-  return useMutation(() => CategoryService.create(name), {
+export const useCreateCategory = (name: string, catalog: string, cb?: Handler) => {
+  return useMutation(() => CategoryService.create(name, catalog), {
     onSuccess: () => {
       if (cb) {
         cb();

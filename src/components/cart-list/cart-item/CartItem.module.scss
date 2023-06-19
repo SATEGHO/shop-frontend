@@ -20,6 +20,17 @@
   width: 200px;
   height: 130px;
   cursor: pointer;
+  flex: 0;
+
+  @media (max-width: 840px) {
+    width: 170px;
+    height: 100px;
+  }
+
+  @media (max-width: 600px) {
+    width: 160px;
+    height: 90px;
+  }
 
   img {
     width: auto;
@@ -43,6 +54,10 @@
 .id {
   color: #999;
   margin-bottom: 10px;
+
+  @media (max-width: 840px) {
+    display: none;
+  }
 }
 
 .name {
@@ -59,6 +74,20 @@
 .price {
   font-weight: 500;
   font-size: 17px;
+
+  @media (max-width: 840px) {
+    display: none;
+  }
+}
+
+.price-mobile {
+  font-weight: 500;
+  font-size: 16px;
+  display: none;
+
+  @media (max-width: 840px) {
+    display: block;
+  }
 }
 
 .quantity {

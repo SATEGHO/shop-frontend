@@ -4,6 +4,10 @@
   min-width: 300px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
+  @media (max-width: 1210px) {
+    margin-bottom: 20px;
+  }
 }
 
 .body {
@@ -19,6 +23,7 @@
 .header {
   font-size: 16px;
   margin-bottom: 15px;
+  font-weight: 500;
 }
 
 .total {

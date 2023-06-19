@@ -11,7 +11,7 @@ const Header: FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.body}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={() => router('/products')}>
           <img src={logo} alt="Logo image" className={styles.img} />
         </div>
         <div className={styles.items}>

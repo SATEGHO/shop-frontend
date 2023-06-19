@@ -4,14 +4,16 @@ import { queryClient } from '.';
 import { toast } from 'react-hot-toast';
 import { ManufacturerService } from '../manufacturer.service';
 
-export const useGetManufacturers = () => {
-  return useQuery(manufacturerKeysFactory.manufacturers, () => ManufacturerService.getAll());
+export const useGetManufacturers = (catalogFilter?: string) => {
+  return useQuery([...manufacturerKeysFactory.manufacturers, catalogFilter], () =>
+    ManufacturerService.getAll(catalogFilter),
+  );
 };
 
 type Handler = () => void;
 
-export const useCreateManufacturer = (name: string, cb?: Handler) => {
-  return useMutation(() => ManufacturerService.create(name), {
+export const useCreateManufacturer = (name: string, catalog: string, cb?: Handler) => {
+  return useMutation(() => ManufacturerService.create(name, catalog), {
     onSuccess: () => {
       if (cb) {
         cb();
