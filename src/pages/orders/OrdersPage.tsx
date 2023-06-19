@@ -6,7 +6,7 @@ import OrderList from '@/components/order-list/OrderList';
 import Loader from '@/components/ui/loader/Loader';
 
 const OrdersPage: FC = () => {
-  const { data: orders, isLoading, error } = useGetAllOrdersQuuery();
+  const { data: orders, isLoading } = useGetAllOrdersQuuery();
 
   return (
     <div>

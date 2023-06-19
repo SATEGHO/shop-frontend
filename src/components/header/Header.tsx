@@ -37,6 +37,9 @@ const Header: FC = () => {
             </Button>
           </Link>
         </div>
+        <div className={styles.burger}>
+          <span></span>
+        </div>
         <div className={styles.items}>
           {user ? (
             <>

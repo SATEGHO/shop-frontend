@@ -11,7 +11,7 @@ interface Props {
 }
 
 const CartInfo: FC<Props> = ({ cartItems }) => {
-  const { mutate: createOrder, isLoading, error } = useCreateOrder();
+  const { mutate: createOrder, isLoading } = useCreateOrder();
 
   return (
     <div className={styles['cart-info']}>
