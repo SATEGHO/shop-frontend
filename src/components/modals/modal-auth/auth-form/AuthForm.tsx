@@ -65,6 +65,7 @@ const AuthForm: FC<Props> = ({ formType, setFormType, onCloseModal }) => {
           <div className={styles.group}>
             <Label>Пароль</Label>
             <Input
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Введите пароль"
@@ -110,6 +111,7 @@ const AuthForm: FC<Props> = ({ formType, setFormType, onCloseModal }) => {
           <div className={styles.group}>
             <Label>Пароль</Label>
             <Input
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Введите пароль"
